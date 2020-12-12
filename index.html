@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Editorial by HTML5 UP</title>
+		<title>rNGCircos document</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -22,13 +17,10 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<a href="index.html" class="logo"><strong>rNGCircos document</strong> by Zhe Cui</a>
 									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+										<li><a href="https://github.com/mrcuizhe/mrcuizhe.github.io/issues/" class="fab fa-github"><span class="label"></span></a></li>
+										<li><a href="http://bioinformatics.hit.edu.cn" class="fab fa-internet-explorer"><span class="label"></span></a></li>
 									</ul>
 								</header>
 
@@ -36,52 +28,53 @@
 								<section id="banner">
 									<div class="content">
 										<header>
-											<h1>Hi, I’m Editorial<br />
-											by HTML5 UP</h1>
-											<p>A free and fully responsive site template</p>
+											<h1>Welcome to rNGCircos</h1>
+											<p>A R package from NG-Circos</p>
 										</header>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+										<p>NG-Circos is developed in Javascript and displayed in html, based on D3 and JQuery libraries. </p>
+										<p>Since R language is much more friendly in data visualization and plot programming than html, we developed this R package based on NG-Circos and htmlwidgets framework. </p>
 										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
+											<li><a href="download/rNGCircos_1.0.0.tar.gz" class="button big">Download(tar.gz)</a></li>
 										</ul>
 									</div>
 									<span class="image object">
-										<img src="images/pic10.jpg" alt="" />
+										<img src="images/pyramid.jpg" alt="" />
 									</span>
 								</section>
 
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Erat lacinia</h2>
+										<h2>Features</h2>
 									</header>
 									<div class="features">
 										<article>
-											<span class="icon fa-gem"></span>
+											<span class="icon fa-dot-circle"></span>
 											<div class="content">
-												<h3>Portitor ullamcorper</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+												<h3>Interactive Circos Plot</h3>
+												<p>rNGCircos can display multi-track and interactive Circos plot in a coding-friendly manner.</p>
+												<p>No Perl or JavaScript experience is required !</p>
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-paper-plane"></span>
+											<span class="icon solid fa-chart-area"></span>
 											<div class="content">
-												<h3>Sapien veroeros</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+												<h3>10+ Plot type </h3>
+												<p>rNGCircos support multiple common types of plot including bubble, chord, heatmap, histogram, line, lollipop, point...<br>rNGCircos also customize several plots for popular bioinformatic data format including wig, cnv, snp, gene...</p>
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-rocket"></span>
+											<span class="icon solid fa-mouse-pointer"></span>
 											<div class="content">
-												<h3>Quam lorem ipsum</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+												<h3>10+ Animation and Mouse Event</h3>
+												<p>rNGCircos apply opening animation for every plot function. Animation of every plot is highly customizable.<br>rNGCircos also support customizing mouse event and mouse tooltips for plot function.</p>
 											</div>
 										</article>
 										<article>
-											<span class="icon solid fa-signal"></span>
+											<span class="icon solid fa-object-group"></span>
 											<div class="content">
-												<h3>Sed magna finibus</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+												<h3>Compatible with other package</h3>
+												<p>rNGCircos use data frame as input, which is compatible with output from other packages </p>
 											</div>
 										</article>
 									</div>
@@ -90,55 +83,79 @@
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Ipsum sed dolor</h2>
+										<h2>Demo</h2>
 									</header>
 									<div class="posts">
 										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>Interdum aenean</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<a class="image"><img src="images/demo_chord.jpeg" alt="" /></a>
+											<h3>Chord plot</h3>
+											<p>Chord plot of rNGCircos for displaying the relationship between gene, exon, protein, etc.</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="html/demo_chord.html" class="button">Interactive demo</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<h3>Nulla amet dolore</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<a class="image"><img src="images/demo_heatmap.jpeg" alt="" /></a>
+											<h3>Heatmap plot</h3>
+											<p>Heatmap plot of rNGCircos for displaying the gene expression, probe signal, etc.</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="html/demo_heatmap.html" class="button">Interactive demo</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<h3>Tempus ullamcorper</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<a class="image"><img src="images/demo_histogram.jpeg" alt="" /></a>
+											<h3>Histogram plot</h3>
+											<p>Histogram plot of rNGCircos for displaying the gene expression, probe signal, etc.</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="html/demo_histogram.html" class="button">Interactive demo</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>Sed etiam facilis</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<a class="image"><img src="images/demo_link.jpeg" alt="" /></a>
+											<h3>Link plot</h3>
+											<p>Link plot for displaying the gene fusions, interaction, SV data, etc.</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="html/demo_link.html" class="button">Interactive demo</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3>Feugiat lorem aenean</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<a class="image"><img src="images/demo_lollipop.jpeg" alt="" /></a>
+											<h3>Lollipop plot</h3>
+											<p>Lollipop plot for displaying the somatic mutation, germline variantion, etc.</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="html/demo_lollipop.html" class="button">Interactive demo</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3>Amet varius aliquam</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<a class="image"><img src="images/demo_line.jpeg" alt="" /></a>
+											<h3>Line plot</h3>
+											<p>Line plot for displaying the gene expression, r2 value, etc.</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="html/demo_line.html" class="button">Interactive demo</a></li>
+											</ul>
+										</article>
+										<article>
+											<a class="image"><img src="images/demo_snp.jpeg" alt="" /></a>
+											<h3>SNP plot</h3>
+											<p>SNP plot for displaying the SNP density data, GWAS data, etc.</p>
+											<ul class="actions">
+												<li><a href="html/demo_snp.html" class="button">Interactive demo</a></li>
+											</ul>
+										</article>
+										<article>
+											<a class="image"><img src="images/demo_wig.jpeg" alt="" /></a>
+											<h3>Wig plot</h3>
+											<p>Wig plot for displaying the gene expression data, read depth etc.</p>
+											<ul class="actions">
+												<li><a href="html/demo_wig.html" class="button">Interactive demo</a></li>
+											</ul>
+										</article>
+										<article>
+											<a class="image"><img src="images/demo_gene.jpeg" alt="" /></a>
+											<h3>Gene plot</h3>
+											<p>Gene plot for displaying the gene profile, transcript profile, RNA profile, etc.</p>
+											<ul class="actions">
+												<li><a href="html/demo_gene.html" class="button">Interactive demo</a></li>
 											</ul>
 										</article>
 									</div>
@@ -165,75 +182,73 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="elements.html">Elements</a></li>
+										<li><a href="html/quick_start.html">Quick start</a></li>
 										<li>
-											<span class="opener">Submenu</span>
+											<span class="opener">Function</span>
 											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
+												<li><a href="html/function.html#arc">rNGCircosArc()</a></li>
+												<li><a href="html/function.html#auxLine">rNGCircosAuxLine()</a></li>
+												<li><a href="html/function.html#background">rNGCircosBackground()</a></li>
+												<li><a href="html/function.html#bubble">rNGCircosBubble()</a></li>
+												<li><a href="html/function.html#chord">rNGCircosChord()</a></li>
+												<li><a href="html/function.html#cnv">rNGCircosCnv()</a></li>
+												<li><a href="html/function.html#gene">rNGCircosGene()</a></li>
+												<li><a href="html/function.html#heatmap">rNGCircosHeatmap()</a></li>
+												<li><a href="html/function.html#histogram">rNGCircosHistogram()</a></li>
+												<li><a href="html/function.html#legend">rNGCircosLegend()</a></li>
+												<li><a href="html/function.html#line">rNGCircosLine()</a></li>
+												<li><a href="html/function.html#link">rNGCircosLink()</a></li>
+												<li><a href="html/function.html#lollipop">rNGCircosLollipop()</a></li>
+												<li><a href="html/function.html#scatter">rNGCircosScatter()</a></li>
+												<li><a href="html/function.html#snp">rNGCircosSnp()</a></li>
+												<li><a href="html/function.html#text">rNGCircosText()</a></li>
+												<li><a href="html/function.html#wig">rNGCircosWig()</a></li>
 											</ul>
 										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
-											<span class="opener">Another Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
+										<li><a href="html/data_frame_format.html">data.frame format</a></li>
+										<li><a href="html/all_parameters.html">all parameters</a></li>
 									</ul>
 								</nav>
 
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Ante interdum</h2>
+										<h2>Gallery</h2>
 									</header>
 									<div class="mini-posts">
 										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+											<a href="html/gallery1.html" class="image"><img src="images/gallery1.png" alt="" /></a>
+											<p>An interactive Circos plot indicating QTL involved in net blotch resistance and displayed using histogram, arc, link, background, text function.
+											</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+											<a href="html/gallery2.html" class="image"><img src="images/gallery2.png" alt="" /></a>
+											<p>An interactive Circos plot displaying the comparative genomic mapping in C. rubella(CR), A. lyrata(AL) and displayed using chord, wig, background function.
+											</p>
 										</article>
 									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
 								</section>
 
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Get in touch</h2>
+										<h2>Communication</h2>
 									</header>
-									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<p>I'm a phD student at Harbin Institute of Technology working on geneme visualization and single cell ATAC sequencing.<br>If you have any questions about rNGCircos, you are very welcome to contact me through github or email.</p>
 									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-										Nashville, TN 00000-0000</li>
+										<li class="icon solid fa-envelope"><a href="mailto:cuizhe@hit.edu.cn">cuizhe@hit.edu.cn</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/mrcuizhe/rNGCircos/">mrcuizhe/rNGCircos</a></li>
+									</ul>
+									<p>If you are interested in our lab, you are very welcome to visit our website!</p>
+									<ul class="contact">
+										<li class="icon solid fa-home"><a href="http://bioinformatics.hit.edu.cn">bioinformatics.hit.edu.cn</a></li>
+									
 									</ul>
 								</section>
 
 							<!-- Footer -->
 								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+									<p class="copyright">Copyright @ Harbin Institute of Technology, China.</p>
 								</footer>
 
 						</div>
