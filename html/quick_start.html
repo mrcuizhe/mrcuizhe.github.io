@@ -31,7 +31,7 @@
 									</header>
 
 									<!-- Content -->
-										<h2 id="content">1.Installation</h2>
+										<h2 id="content">1. Installation</h2>
 										<p>rNGCircos is available at <a href="https://github.com/mrcuizhe/rNGCircos/">github </a> or you can <a href="../download/rNGCircos_1.0.0.tar.gz">download</a> here</p>
 										<div class="row">
 											<div class="col-6 col-12-small">
@@ -61,16 +61,16 @@ type = "source")
 									<hr class="major" />
 
 									<!-- Howto -->
-										<h2 id="Howto">2.Draw an interactive Circos plot using rNGCircos</h2>
-										<p>If you are a NG-Circos user and familiar with the modules and its data structrue, it will only take you a few moment for getting used to rNGCircos.</p>
-										<p>Same as NG-Circos, a main function called <b>rNGCircos()</b> is neccesary to display the genome for Circos plot, which is the coordinates basis for all modules.</p>
-										<p>Up tp <b>20</b> types of modules can be added to genome track through a parameter in <b>rNGCircos()</b> called <b>moduleList</b>. Modules can be added by simply using "+" in <b>moduleList</b>. For example, <b>moduleList=rNGCircosText()+rNGCircosBackground()</b> means apply one <b>TEXT</b> module and one <b>BACKGROUND</b> module together to genome track. The other parameters in <b>rNGCircos()</b> are all correspond to that in NG-Circos one to one.</p>
-										<p>Note that 3 of all modules(<b>COMBINATION</b>, <b>COMPARE</b>, <b>REDIRECT</b>) , their parameters are included in <b>rNGCircos()</b><br>For the other 17 of 20 modules, which has a independent function(<b>rNGCircosArc()</b>, <b>rNGCircosAuxLine()</b>, <b>rNGCircosBackground()</b>, <b>rNGCircosBubble()</b>, <b>rNGCircosChord()</b>, <b>rNGCircosCnv()</b>, <b>rNGCircosGene()</b>, <b>rNGCircosHeatmap()</b>, <b>rNGCircosHistogram()</b>, <b>rNGCircosLegend()</b>, <b>rNGCircosLine()</b>, <b>rNGCircosLink()</b>, <b>rNGCircosLollipop()</b>, <b>rNGCircosScatter()</b>, <b>rNGCircosSnp()</b>, <b>rNGCircosText()</b>, <b>rNGCircosWig()</b>), all data(if yes) are input through a parameter called <b>data</b> in a data.frame structure. All other parameters are all correspond to that in Jacascript version one to one. </p>
+										<h2 id="Howto">2. Draw an interactive Circos plot using rNGCircos</h2>
+										<p>If you are a NG-Circos user and familiar with the modules and its data structure, it will only take you a few moment for getting used to rNGCircos.</p>
+										<p>Same as NG-Circos, a main function called <b>rNGCircos()</b> is necessary to display the genome for Circos plot, which is the coordinates basis for all modules.</p>
+										<p>Up to <b>20</b> types of modules can be added to genome track through a parameter in <b>rNGCircos()</b> called <b>moduleList</b>. Modules can be added by simply using "+" in <b>moduleList</b>. For example, <b>moduleList=rNGCircosText()+rNGCircosBackground()</b> means apply one <b>TEXT</b> module and one <b>BACKGROUND</b> module together to genome track. The other parameters in <b>rNGCircos()</b> are all correspond to that in NG-Circos one to one.</p>
+										<p>Note that 3 of all modules(<b>COMBINATION</b>, <b>COMPARE</b>, <b>REDIRECT</b>) , their parameters are included in <b>rNGCircos()</b><br>For the other 17 of 20 modules, which has an independent function(<b>rNGCircosArc()</b>, <b>rNGCircosAuxLine()</b>, <b>rNGCircosBackground()</b>, <b>rNGCircosBubble()</b>, <b>rNGCircosChord()</b>, <b>rNGCircosCnv()</b>, <b>rNGCircosGene()</b>, <b>rNGCircosHeatmap()</b>, <b>rNGCircosHistogram()</b>, <b>rNGCircosLegend()</b>, <b>rNGCircosLine()</b>, <b>rNGCircosLink()</b>, <b>rNGCircosLollipop()</b>, <b>rNGCircosScatter()</b>, <b>rNGCircosSnp()</b>, <b>rNGCircosText()</b>, <b>rNGCircosWig()</b>), all data(if yes) are input through a parameter called <b>data</b> in a data.frame structure. All other parameters are all correspond to that in JacaScript version one to one. </p>
 
 									<hr class="major" />
 										
 									<!-- GenomeConfig -->
-										<h2 id="GenomeConfig">3.Genome configuration</h2>
+										<h2 id="GenomeConfig">3. Genome configuration</h2>
 										<div class="row">
 											<div class="col-6 col-12-small">
 												<h3>Default genome track</h3>
@@ -96,7 +96,7 @@ rNGCircos(zoom=FALSE)
 										<div class="row">
 											<div class="col-6 col-12-small">
 												<h3>Try changing genome list and its color</h3>
-												<p>The genome is set by defult as hg19, the genome can be changed by setting genome=list("Example1"=100,"Example2"=200,"Example3"=300). Meanwhile, the color of each chromosome can be changed by setting genomeFillColor = c("red","blue","green")</p>
+												<p>The genome is set by default as hg19, the genome can be changed by setting genome=list("Example1"=100,"Example2"=200,"Example3"=300). Meanwhile, the color of each chromosome can be changed by setting genomeFillColor = c("red","blue","green")</p>
 												<pre><code>library(rNGCircos)
 
 rNGCircos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
@@ -172,11 +172,11 @@ genomeTicksScale = 10,genomeLabelDisplay = FALSE)
 											</div>
 										</div>
 
-										<h2>4.Add function for more plot tracks</h3>
+										<h2>4. Add function for more plot tracks</h3>
 										<p>Each plot function <b>(e.g. Module of NG-Circos)</b> is added through <b>moduleList</b>, a parameter of <b>rNGCircos()</b></p>
 										<p>Totally 17 modules:<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#arc"><b>rNGCircosArc()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#auxline"><b>rNGCircosAuxLine()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#background"><b>rNGCircosBackground()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#bubble"><b>rNGCircosBubble()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#chord"><b>rNGCircosChord()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#cnv"><b>rNGCircosCnv()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#gene"><b>rNGCircosGene()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#heatmap"><b>rNGCircosHeatmap()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#histogram"><b>rNGCircosHistogram()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#legend"><b>rNGCircosLegend()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#line"><b>rNGCircosLine()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#link"><b>rNGCircosLink()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#lollipop"><b>rNGCircosLollipop()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#scatter"><b>rNGCircosScatter()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#snp"><b>rNGCircosSnp()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#text"><b>rNGCircosText()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#wig"><b>rNGCircosWig()</b></a><br>can be added by using <b>"+"</b> in <b>moduleList</b></p>
 
-										<h2>5.Plot saving</h3>
+										<h2>5. Plot saving</h3>
 										<div class="row">
 											<div class="col-9 col-12-small">
 												<p>If you are using <b>RStudio</b>, the plot can be saved as an image or a html page directly from viewer panel.</p>
@@ -276,7 +276,7 @@ saveWidget(plot, "plot.html")
 									<header class="major">
 										<h2>Communication</h2>
 									</header>
-									<p>I'm a phD student at Harbin Institute of Technology working on geneme visualization and single cell ATAC sequencing.<br>If you have any questions about rNGCircos, you are very welcome to contact me through github or email.</p>
+									<p>I'm a PhD student at Harbin Institute of Technology working on genome visualization and single cell ATAC sequencing.<br>If you have any questions about rNGCircos, you are very welcome to contact me through github or email.</p>
 									<ul class="contact">
 										<li class="icon solid fa-envelope"><a href="mailto:cuizhe@hit.edu.cn">cuizhe@hit.edu.cn</a></li>
 										<li class="icon brands fa-github"><a href="https://github.com/mrcuizhe/rNGCircos/">mrcuizhe/rNGCircos</a></li>
