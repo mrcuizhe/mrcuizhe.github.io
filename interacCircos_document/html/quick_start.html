@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>interacCircos document</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo"><strong>interacCircos document</strong> by Zhe Cui</a>
+									<ul class="icons">
+										<li><a href="https://github.com/mrcuizhe/interacCircos/issues/" class="fab fa-github"><span class="label"></span></a></li>
+										<li><a href="http://bioinformatics.hit.edu.cn" class="fab fa-internet-explorer"><span class="label"></span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 id="quick_start">Quick Start</h1>
+									</header>
+
+									<!-- Content -->
+										<h2 id="content">I. Installation</h2>
+										<p>interacCircos is available at <a href="https://github.com/mrcuizhe/interacCircos/">github </a> or you can <a href="../download/interacCircos_1.0.0.tar.gz">download</a> here</p>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>Install from Github</h3>
+												<pre><code># You need devtools for that
+if (!require('devtools')){install.packages('devtools')}
+
+devtools::install_github('mrcuizhe/interacCircos')
+
+# R package of htmlwidgets, RColorBrewer, plyr, jsonlite
+# and grDevices are required !  
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>Install from local package</h3>
+												<pre><code>#Download interacCircos package to local disk first!
+
+install.packages("PATH/TO/PACKAGE/interacCircos_X.X.X.tar.gz", repos = NULL, 
+type = "source")
+
+# R package of htmlwidgets, RColorBrewer, plyr, jsonlite
+# and grDevices are required !  
+</code></pre>
+											</div>
+										</div>
+
+									<hr class="major" />
+
+									<!-- Howto -->
+										<h2 id="Howto">II. Overview</h2>
+										<p>If you are a NG-Circos/BioCircos.js/circosJS user and familiar with the modules and their data structure, it will only take you a few moment for getting used to interacCircos.</p>
+										<p>a main function called <b>Circos()</b> is necessary to display the genome for Circos plot, which is the coordinates basis for all modules.</p>
+										<p>Up to <b>21</b> types of modules can be added to genome track through a parameter in <b>Circos()</b> called <b>moduleList</b>. Modules can be added by simply using "+" in <b>moduleList</b>. For example, <b>moduleList=CircosText()+CircosBackground()</b> means apply one <b>TEXT</b> module and one <b>BACKGROUND</b> module together to genome track. The other parameters in <b>Circos()</b> are all correspond to that in NG-Circos/BioCircos.js/circosJS one to one.</p>
+										<p>Note that for 3 of all modules(<b>COMBINATION</b>, <b>COMPARE</b>, <b>REDIRECT</b> <i>from NG-Circos</i>) , their parameters are included in <b>Circos()</b></p>
+										<p>For the other 18 of 21 modules, which has an independent function(<b>CircosArc()</b>, <b>CircosAuxLine()</b>, <b>CircosBackground()</b>, <b>CircosBubble()</b>, <b>CircosChord()</b>, <b>CircosChord.p()</b>, <b>CircosCnv()</b>, <b>CircosGene()</b>, <b>CircosHeatmap()</b>, <b>CircosHistogram()</b>, <b>CircosLegend()</b>, <b>CircosLine()</b>, <b>CircosLink()</b>, <b>CircosLollipop()</b>, <b>CircosScatter()</b>, <b>CircosSnp()</b>, <b>CircosText()</b>, <b>CircosWig()</b> <i>from NG-Circos/BioCircos.js/circosJS</i>), all data(if needed) are input through a parameter called <b>data</b> in a data.frame structure and all parameters are correspond to that in JacaScript version. </p>
+
+									<hr class="major" />
+										
+									<!-- GenomeConfig -->
+										<h2 id="2steps">III. 2 steps of drawing interactive plot</h2>
+										<h3 id="GenomeConfig">Step 1. Genome configuration</h3>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>Default genome track</h3>
+												<pre><code>library(interacCircos)
+
+Circos(zoom=FALSE)
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>Plot viewer</h3>
+												<a class="image"><img src="../images/quick_start1.jpeg" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+													<li><a href="quick_start1.html" class="button" >Interactive demo</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>Try changing genome list and its color</h3>
+												<p>The genome is set by default as hg19, the genome can be changed by setting genome=list("Example1"=100,"Example2"=200,"Example3"=300). Meanwhile, the color of each chromosome can be changed by setting genomeFillColor = c("red","blue","green")</p>
+												<pre><code>library(interacCircos)
+
+Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
+"Example3"=300),genomeFillColor = c("red","blue","green"))
+
+
+
+
+
+
+</code></pre>
+												
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>Plot viewer</h3>
+												<a class="image"><img src="../images/quick_start2.jpeg" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+													<li><a href="quick_start2.html" class="button" >Interactive demo</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>Try automatically filling genome color</h3>
+												<p>The filling color for chromosome can also be set automatically by choosing a <b>RColorBrewer</b> palette, such as <b>Blues</b></p>
+												<pre><code>library(interacCircos)
+
+Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
+"Example3"=300),genomeFillColor = "Blues")
+
+
+
+
+
+
+</code></pre>
+												
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>Plot viewer</h3>
+												<a class="image"><img src="../images/quick_start3.jpeg" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+													<li><a href="quick_start3.html" class="button" >Interactive demo</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>Find more parameters</h3>
+												<p>Other parameters are all documented and try <b>?Circos()</b> for details</p>
+												<pre><code>library(interacCircos)
+
+Circos(zoom=FALSE,genome=list("Example1"=100,"Example2"=200,
+"Example3"=300),genomeFillColor = "Blues",chrPad = 0,genomeTicksDisplay = TRUE,
+genomeTicksScale = 10,genomeLabelDisplay = FALSE)
+
+
+
+
+
+
+</code></pre>
+												
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>Plot viewer</h3>
+												<a class="image"><img src="../images/quick_start4.jpeg" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+													<li><a href="uick_start4.html" class="button" >Interactive demo</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<h3>Step 2. Add function for more plot tracks</h3>
+										<p>Each plot function <b>(e.g. Module of NG-Circos)</b> is added through <b>moduleList</b>, a parameter of <b>Circos()</b></p>
+										<p>Totally 18 modules:<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#arc"><b>CircosArc()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#auxline"><b>CircosAuxLine()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#background"><b>CircosBackground()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#bubble"><b>CircosBubble()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#chord"><b>CircosChord()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#chord.p"><b>CircosChord.p()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#cnv"><b>CircosCnv()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#gene"><b>CircosGene()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#heatmap"><b>CircosHeatmap()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#histogram"><b>CircosHistogram()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#legend"><b>CircosLegend()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#line"><b>CircosLine()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#link"><b>CircosLink()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#lollipop"><b>CircosLollipop()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#scatter"><b>CircosScatter()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#snp"><b>CircosSnp()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#text"><b>CircosText()</b></a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="function.html#wig"><b>CircosWig()</b></a><br>can be added by using <b>"+"</b> in <b>moduleList</b></p>
+
+										<h2>IV. Plot saving</h3>
+										<div class="row">
+											<div class="col-9 col-12-small">
+												<p>If you are using <b>RStudio</b>, the plot can be saved as an image or a html page directly from viewer panel.</p>
+												<p>If you are using <b>R in command</b>, the plot can be saved as a html page, thanks to the <b>htmlwidgets</b> library</p>
+												<pre><code>library(interacCircos)
+library(htmlwidgets)
+
+plot <- Circos(zoom=FALSE,genome=list("Example1"=100,"Example2"=200,
+"Example3"=300),genomeFillColor = "Blues",chrPad = 0,genomeTicksDisplay = TRUE,
+genomeTicksScale = 10,genomeLabelDisplay = FALSE)
+
+saveWidget(plot, "plot.html")
+
+
+
+
+
+
+	</code></pre>
+												<p>The plot will be saved at your <b>current directory</b></p>
+											</div>
+										</div>
+
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<li><a href="quick_start.html">Quick start</a></li>
+										<li>
+											<span class="opener">Function</span>
+											<ul>
+												<li><a href="function.html#arc">CircosArc()</a></li>
+												<li><a href="function.html#auxLine">CircosAuxLine()</a></li>
+												<li><a href="function.html#background">CircosBackground()</a></li>
+												<li><a href="function.html#bubble">CircosBubble()</a></li>
+												<li><a href="function.html#chord">CircosChord()</a></li>
+												<li><a href="function.html#chord.p">CircosChord.p()</a></li>
+												<li><a href="function.html#cnv">CircosCnv()</a></li>
+												<li><a href="function.html#gene">CircosGene()</a></li>
+												<li><a href="function.html#heatmap">CircosHeatmap()</a></li>
+												<li><a href="function.html#histogram">CircosHistogram()</a></li>
+												<li><a href="function.html#legend">CircosLegend()</a></li>
+												<li><a href="function.html#line">CircosLine()</a></li>
+												<li><a href="function.html#link">CircosLink()</a></li>
+												<li><a href="function.html#lollipop">CircosLollipop()</a></li>
+												<li><a href="function.html#scatter">CircosScatter()</a></li>
+												<li><a href="function.html#snp">CircosSnp()</a></li>
+												<li><a href="function.html#text">CircosText()</a></li>
+												<li><a href="function.html#wig">CircosWig()</a></li>
+											</ul>
+										</li>
+										<li><a href="data_frame_format.html">data.frame format</a></li>
+										<li><a href="html/all_parameters.html">all parameters</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Gallery</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="gallery1.html" class="image"><img src="../images/gallery1.png" alt="" /></a>
+											<p>An interactive Circos plot indicating QTL involved in net blotch resistance and displayed using histogram, arc, link, background, text function.
+											</p>
+										</article>
+										<article>
+											<a href="gallery2.html" class="image"><img src="../images/gallery2.png" alt="" /></a>
+											<p>An interactive Circos plot displaying the comparative genomic mapping in C. rubella(CR), A. lyrata(AL) and displayed using chord, wig, background function.
+											</p>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Communication</h2>
+									</header>
+									<p>I'm a PhD student at Harbin Institute of Technology working on genome visualization and single cell ATAC sequencing.<br>If you have any questions about interacCircos, you are very welcome to contact me through github or email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:cuizhe@hit.edu.cn">cuizhe@hit.edu.cn</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/mrcuizhe/interacCircos/">mrcuizhe/interacCircos</a></li>
+									</ul>
+									<p>If you are interested in our lab, you are very welcome to visit our website!</p>
+									<ul class="contact">
+										<li class="icon solid fa-home"><a href="http://bioinformatics.hit.edu.cn">bioinformatics.hit.edu.cn</a></li>
+									
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">Copyright @ Harbin Institute of Technology, China.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

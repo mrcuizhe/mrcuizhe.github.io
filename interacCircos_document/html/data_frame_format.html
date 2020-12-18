@@ -1,0 +1,1126 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>interacCircos document</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo"><strong>interacCircos document</strong> by Zhe Cui</a>
+									<ul class="icons">
+										<li><a href="https://github.com/mrcuizhe/interacCircos/issues/" class="fab fa-github"><span class="label"></span></a></li>
+										<li><a href="http://bioinformatics.hit.edu.cn" class="fab fa-internet-explorer"><span class="label"></span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>data.frame format</h1>
+									</header>
+
+									<!-- arc -->
+									<h2 id="arc">What is data.frame?</h2>
+									<p>data.frame in R is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column.</p>
+									<p>The details for data.frame is available <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame">here</a></p>
+
+									<hr class="major" />
+
+									<h2>Why using data.frame</h2>
+									<p>It is because that most of R packages are supporting this type of data structure, such as tidyverse, reshape2...
+									<br>And meanwhile, data.frame can be easily transformed to other structure, such as matrix, array, list...</p>
+										
+
+									<hr class="major" />
+
+									<h2>Data structure of each function</h2>
+
+									The data structure among each function is different, details are showing below.
+
+									<h3>CircosArc()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>start</th>
+													<th>end</th>
+													<th>color</th>
+													<th>des</th>
+													<th>link</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>EGFR</td>
+													<td>57</td>
+													<td>167</td>
+													<td>#FFBB77</td>
+													<td>Recep_L_domain</td>
+													<td> </td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>185</td>
+													<td>338</td>
+													<td>#FF7F0E</td>
+													<td>Furin-like_domain</td>
+													<td>https://www.intogen.org/search?gene=EGFR</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>361</td>
+													<td>480</td>
+													<td>#FFBB77</td>
+													<td>Recep_L_domain</td>
+													<td>https://www.intogen.org/search?gene=EGFR</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>505</td>
+													<td>636</td>
+													<td>#1F77B4</td>
+													<td>GF_recep_IV_domain </td>
+													<td> </td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>713</td>
+													<td>965</td>
+													<td>#AEC6E7</td>
+													<td>Pkinase_Tyr_domain</td>
+													<td> </td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?arcExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosAuxLine()</h3>
+									<P>No data should be input to CircosAuxLine()</P>
+
+									<hr class="major" />
+
+									<h3>CircosBackground()</h3>
+									<P>No data should be input to CircosBackground()</P>
+
+									<hr class="major" />
+
+									<h3>CircosBubble()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>start</th>
+													<th>end</th>
+													<th>name</th>
+													<th>value</th>
+													<th>layer</th>
+													<th>color</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>2L</td>
+													<td>1</td>
+													<td>1011544</td>
+													<td>TP53</td>
+													<td>0.8</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>2L</td>
+													<td>1011548</td>
+													<td>2011544</td>
+													<td>TP53</td>
+													<td>0.3</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>X</td>
+													<td>20011548</td>
+													<td>21146708</td>
+													<td>TP53</td>
+													<td>0.49</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>X</td>
+													<td>21011548</td>
+													<td>22422827</td>
+													<td>TP53</td>
+													<td>0.83</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?bubbleExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosChord()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>C.CK</th>
+													<th>C.NPK</th>
+													<th>...</th>
+													<th>Basidiomycota</th>
+													<th>Zygomycota</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>0</td>
+													<td>0</td>
+													<td>...</td>
+													<td>24.75</td>
+													<td>18.49</td>
+												</tr>
+												<tr>
+													<td>0</td>
+													<td>0</td>
+													<td>...</td>
+													<td>24.18</td>
+													<td>29.3</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>24.75</td>
+													<td>24.18</td>
+													<td>...</td>
+													<td>0</td>
+													<td>0</td>
+												</tr>
+												<tr>
+													<td>18.49</td>
+													<td>29.3</td>
+													<td>...</td>
+													<td>0</td>
+													<td>0</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?chordExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosChord.p()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>source_chr</th>
+													<th>source_start</th>
+													<th>source_end</th>
+													<th>target_chr</th>
+													<th>target_start</th>
+													<th>target_end</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>19</td>
+													<td>22186054</td>
+													<td>26186054</td>
+													<td>17</td>
+													<td>31478117</td>
+													<td>35478117</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>74807187</td>
+													<td>78807187</td>
+													<td>1</td>
+													<td>89852878</td>
+													<td>93852878</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>17</td>
+													<td>31478117</td>
+													<td>35478117</td>
+													<td>1</td>
+													<td>89852849</td>
+													<td>93852849</td>
+												</tr>
+												<tr>
+													<td>17</td>
+													<td>31478114</td>
+													<td>31478114</td>
+													<td>X</td>
+													<td>106297713</td>
+													<td>110297713</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?chord.pExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosCnv()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>start</th>
+													<th>end</th>
+													<th>value</th>
+													<th>link</th>
+													<th>color</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>764788</td>
+													<td>87109267</td>
+													<td>2.5</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>87109268</td>
+													<td>120217058</td>
+													<td>2.0</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>125251487</td>
+													<td>125456654</td>
+													<td>5</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>125456655</td>
+													<td>127048011</td>
+													<td>4</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<p>Full example of data can be found through ?cnvExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosGene()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>strand</th>
+													<th>start</th>
+													<th>end</th>
+													<th>type</th>
+													<th>name</th>
+													<th>link</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>EGFR</td>
+													<td>-</td>
+													<td>1</td>
+													<td>250</td>
+													<td>gene</td>
+													<td>EGFR</td>
+													<td>https://www.intogen.org/search?gene=EGFR</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>-</td>
+													<td>1</td>
+													<td>30</td>
+													<td>utr</td>
+													<td>EGFR</td>
+													<td>https://www.intogen.org/search?gene=EGFR</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>-</td>
+													<td>920</td>
+													<td>935</td>
+													<td>cds</td>
+													<td>EGFR</td>
+													<td>https://www.intogen.org/search?gene=EGFR</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>-</td>
+													<td>935</td>
+													<td>950</td>
+													<td>utr</td>
+													<td>EGFR</td>
+													<td>https://www.intogen.org/search?gene=EGFR</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?geneExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosHeatmap()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>start</th>
+													<th>end</th>
+													<th>name</th>
+													<th>value</th>
+													<th>layer</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>2L</td>
+													<td>1</td>
+													<td>1011544</td>
+													<td>TP53</td>
+													<td>0.8</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>2L</td>
+													<td>1011548</td>
+													<td>2011544</td>
+													<td>TP53</td>
+													<td>0.3</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>X</td>
+													<td>20011548</td>
+													<td>21146708</td>
+													<td>TP53</td>
+													<td>0.49</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>X</td>
+													<td>21011548</td>
+													<td>22422827</td>
+													<td>TP53</td>
+													<td>0.83</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?heatmapExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosHistogram()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>start</th>
+													<th>end</th>
+													<th>name</th>
+													<th>value</th>
+													<th>layer</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>2L</td>
+													<td>1</td>
+													<td>1011544</td>
+													<td>TP53</td>
+													<td>0.8</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>2L</td>
+													<td>1011548</td>
+													<td>2011544</td>
+													<td>TP53</td>
+													<td>0.3</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>X</td>
+													<td>20011548</td>
+													<td>21146708</td>
+													<td>TP53</td>
+													<td>0.49</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>X</td>
+													<td>21011548</td>
+													<td>22422827</td>
+													<td>TP53</td>
+													<td>0.83</td>
+													<td>1</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?histogramExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosLegend()</h3>
+									<P>No data should be input to CircosLegend()</P>
+
+									<hr class="major" />
+
+									<h3>CircosLine()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>pos</th>
+													<th>value</th>
+													<th>des</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>813468</td>
+													<td>0.15</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>3383745</td>
+													<td>0.122385</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>7</td>
+													<td>141390027</td>
+													<td>0.0922775</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>7</td>
+													<td>146503088</td>
+													<td>0.1907651</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?lineExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosLink()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>fusion</th>
+													<th>g1chr</th>
+													<th>g1start</th>
+													<th>g1end</th>
+													<th>g1name</th>
+													<th>g2chr</th>
+													<th>g2start</th>
+													<th>g2end</th>
+													<th>g2name</th>
+													<th>link</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>FGFR3--TACC3</td>
+													<td>4</td>
+													<td>1795662</td>
+													<td>1808986</td>
+													<td>FGFR3</td>
+													<td>4</td>
+													<td>1723217</td>
+													<td>1746905</td>
+													<td>TACC3</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>CCDC6--RET</td>
+													<td>10</td>
+													<td>43595894</td>
+													<td>43623714</td>
+													<td>RET</td>
+													<td>10</td>
+													<td>61552678</td>
+													<td>61666182</td>
+													<td>TACC3</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>ABL1--BCR</td>
+													<td>9</td>
+													<td>133589707</td>
+													<td>133761067</td>
+													<td>ABL1</td>
+													<td>22</td>
+													<td>23523148</td>
+													<td>23657706</td>
+													<td>BCR</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>SND1--BRAF</td>
+													<td>7</td>
+													<td>127292043</td>
+													<td>127732659</td>
+													<td>SND1</td>
+													<td>7</td>
+													<td>140434400</td>
+													<td>140624503</td>
+													<td>BRAF</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?linkExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosLollipop()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>protein</th>
+													<th>chr</th>
+													<th>pos</th>
+													<th>strand</th>
+													<th>CancerTypeNumber</th>
+													<th>AA_pos</th>
+													<th>AA_change</th>
+													<th>Consequence</th>
+													<th>color</th>
+													<th>type</th>
+													<th>link</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>EGFR</td>
+													<td>7</td>
+													<td>101219410</td>
+													<td>+</td>
+													<td>2</td>
+													<td>AA_858</td>
+													<td>L/R</td>
+													<td>missense_variant</td>
+													<td>#FEFF00</td>
+													<td>Hetero</td>
+													<td> </td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>7</td>
+													<td>101219417</td>
+													<td>+</td>
+													<td>2</td>
+													<td>AA_858</td>
+													<td>L/R</td>
+													<td>missense_variant</td>
+													<td>#FEFF00</td>
+													<td>Homo</td>
+													<td> </td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>EGFR</td>
+													<td>7</td>
+													<td>101219425</td>
+													<td>+</td>
+													<td>1</td>
+													<td>AA_858</td>
+													<td>L/R</td>
+													<td>missense_variant</td>
+													<td>#FEFF00</td>
+													<td>Homo</td>
+													<td> </td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?lollipopExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosScatter()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>start</th>
+													<th>end</th>
+													<th>name</th>
+													<th>des</th>
+													<th>link</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>12</td>
+													<td>125550131</td>
+													<td>125626772</td>
+													<td>AACS</td>
+													<td>liver</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>9</td>
+													<td>107546599</td>
+													<td>107665960</td>
+													<td>ABCA1</td>
+													<td>colorectal</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>16</td>
+													<td>2326678</td>
+													<td>2376467</td>
+													<td>ABCA3</td>
+													<td>breast</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?scatterExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosSnp()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>pos</th>
+													<th>value</th>
+													<th>des</th>
+													<th>color</th>
+													<th>r2value</th>
+													<th>link</th>
+													<th>index</th>
+													<th>image</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>813468</td>
+													<td>0.714061</td>
+													<td>GWAS_SNP</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>3383745</td>
+													<td>0.22385</td>
+													<td>GWAS_SNP</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>6157646</td>
+													<td>0.238643</td>
+													<td>GWAS_SNP</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?snpExample</p>
+
+									<hr class="major" />
+
+									<h3>CircosText()</h3>
+									<P>No data should be input to CircosText()</P>
+
+									<hr class="major" />
+
+									<h3>CircosWig()</h3>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>chr</th>
+													<th>pos</th>
+													<th>value</th>
+													<th>des</th>
+													<th>html</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>chr8</td>
+													<td>0.024557353699565337</td>
+													<td>5</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>chr8</td>
+													<td>0.5157044276908721</td>
+													<td>5</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>chr8</td>
+													<td>1.0068515016821786</td>
+													<td>4</td>
+													<td>NA</td>
+													<td>NA</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Full example of data can be found through ?wigExample</p>
+
+									<hr class="major" />
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<li><a href="quick_start.html">Quick start</a></li>
+										<li>
+											<span class="opener">Function</span>
+											<ul>
+												<li><a href="function.html#arc">CircosArc()</a></li>
+												<li><a href="function.html#auxLine">CircosAuxLine()</a></li>
+												<li><a href="function.html#background">CircosBackground()</a></li>
+												<li><a href="function.html#bubble">CircosBubble()</a></li>
+												<li><a href="function.html#chord">CircosChord()</a></li>
+												<li><a href="function.html#chord.p">CircosChord.p()</a></li>
+												<li><a href="function.html#cnv">CircosCnv()</a></li>
+												<li><a href="function.html#gene">CircosGene()</a></li>
+												<li><a href="function.html#heatmap">CircosHeatmap()</a></li>
+												<li><a href="function.html#histogram">CircosHistogram()</a></li>
+												<li><a href="function.html#legend">CircosLegend()</a></li>
+												<li><a href="function.html#line">CircosLine()</a></li>
+												<li><a href="function.html#link">CircosLink()</a></li>
+												<li><a href="function.html#lollipop">CircosLollipop()</a></li>
+												<li><a href="function.html#scatter">CircosScatter()</a></li>
+												<li><a href="function.html#snp">CircosSnp()</a></li>
+												<li><a href="function.html#text">CircosText()</a></li>
+												<li><a href="function.html#wig">CircosWig()</a></li>
+											</ul>
+										</li>
+										<li><a href="data_frame_format.html">data.frame format</a></li>
+										<li><a href="html/all_parameters.html">all parameters</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Gallery</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="gallery1.html" class="image"><img src="../images/gallery1.png" alt="" /></a>
+											<p>An interactive Circos plot indicating QTL involved in net blotch resistance and displayed using histogram, arc, link, background, text function.
+											</p>
+										</article>
+										<article>
+											<a href="gallery2.html" class="image"><img src="../images/gallery2.png" alt="" /></a>
+											<p>An interactive Circos plot displaying the comparative genomic mapping in C. rubella(CR), A. lyrata(AL) and displayed using chord, wig, background function.
+											</p>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Communication</h2>
+									</header>
+									<p>I'm a PhD student at Harbin Institute of Technology working on genome visualization and single cell ATAC sequencing.<br>If you have any questions about interacCircos, you are very welcome to contact me through github or email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:cuizhe@hit.edu.cn">cuizhe@hit.edu.cn</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/mrcuizhe/interacCircos/">mrcuizhe/interacCircos</a></li>
+									</ul>
+									<p>If you are interested in our lab, you are very welcome to visit our website!</p>
+									<ul class="contact">
+										<li class="icon solid fa-home"><a href="http://bioinformatics.hit.edu.cn">bioinformatics.hit.edu.cn</a></li>
+									
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">Copyright @ Harbin Institute of Technology, China.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
