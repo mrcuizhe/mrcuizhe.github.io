@@ -39,7 +39,8 @@
 												<pre><code>library(interacCircos)
 arcData=arcExample
 Circos(moduleList=CircosArc('Arc01', outerRadius = 212, 
-innerRadius = 224, data=arcData),genome=list("EGFR"=1211),
+innerRadius = 224, data=arcData,animationDisplay = TRUE),
+genome=list("EGFR"=1211),
 outerRadius = 220,genomeFillColor = c("grey"))
 
 
@@ -51,7 +52,7 @@ outerRadius = 220,genomeFillColor = c("grey"))
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_arc.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_arc.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_arc.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -68,7 +69,9 @@ outerRadius = 220,genomeFillColor = c("grey"))
 												<h3>Example of CircosAuxLine()</h3>
 												<pre><code>library(interacCircos)
 
-Circos(moduleList=CircosAuxLine('AuxLine01'))
+Circos(moduleList=CircosAuxLine('AuxLine01',
+animationDisplay = TRUE,animationType = "linear",
+animationDelay =0,animationTime = 1000))
 
 
 
@@ -80,7 +83,7 @@ Circos(moduleList=CircosAuxLine('AuxLine01'))
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_auxline.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_auxline.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_auxline.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -98,7 +101,7 @@ Circos(moduleList=CircosAuxLine('AuxLine01'))
 												<pre><code>library(interacCircos)
 
 Circos(moduleList=CircosBackground('bg01', fillColors="#FFEEEE", 
-borderSize = 1))
+borderSize = 1,animationDisplay = TRUE))
 
 
 
@@ -110,7 +113,7 @@ borderSize = 1))
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_background.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_background.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_background.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -143,7 +146,7 @@ BUBBLEMouseOverDisplay =TRUE,innerRadius = 236)
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_bubble.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_bubble.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_bubble.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -170,7 +173,7 @@ genome=list("C.CK" = 189.51,"C.NPK"=188,"GC.CK"=186.11,
 "Deltaproteobacteria"=23.28,"Acidobacteria"=53.62,"Actinobacteria"=72.33,"Bacteroidetes"=22.41,
 "Chloroflexi"=15.08,"Firmicutes"=10.72,"Gemmatimonadetes"=26.37,"Planctomycetes"=19.26,"Thaumarchaeota"=6.15,
 "Verrucomicrobia"=8.3,"Ascomycota"=159.41,"Basidiomycota"=79.73,"Zygomycota"=139.29 ),outerRadius = 217,
-genomeLabelDisplay = FALSE)
+genomeLabelDisplay = FALSE,CHORDMouseEvent =TRUE,CHORDMouseOverDisplay = TRUE)
 
 
 </code></pre>
@@ -178,7 +181,7 @@ genomeLabelDisplay = FALSE)
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_chord.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_chord.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_chord.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -210,7 +213,7 @@ color="black"), innerRadius = 217, outerRadius = 237,genomeLabelDisplay = TRUE,z
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/function_chord.p.jpeg" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="function_chord.p.html" class="button" >Interactive demo</a></li>
+													<li><a href="function_chord.p.html" class="button" >demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -226,8 +229,11 @@ color="black"), innerRadius = 217, outerRadius = 237,genomeLabelDisplay = TRUE,z
 												<pre><code>library(interacCircos)
 
 cnvData=cnvExample
-Circos(moduleList=CircosCnv('Cnv01',maxRadius =175, minRadius =116, data =cnvData,width=2,color = "#4876FF")+
-CircosBackground("bg01",minRadius = 116,maxRadius = 175,fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE)
+Circos(moduleList=CircosCnv('Cnv01',maxRadius =175, minRadius =116, 
+data =cnvData,width=2,color = "#4876FF",animationDisplay = TRUE,
+animationType = "linear",animationTime = 500)+
+CircosBackground("bg01",minRadius = 116,maxRadius = 175,
+fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE)
 
 
 
@@ -239,7 +245,7 @@ CircosBackground("bg01",minRadius = 116,maxRadius = 175,fillColors = "#F2F2F2",a
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_cnv.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_cnv.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_cnv.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -272,7 +278,7 @@ Circos(moduleList=CircosGene('Gene01', outerRadius = 195, innerRadius = 180, dat
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_gene.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_gene.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_gene.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -290,7 +296,7 @@ Circos(moduleList=CircosGene('Gene01', outerRadius = 195, innerRadius = 180, dat
 												<pre><code>library(interacCircos)
 
 heatmapData=heatmapExample
-Circos(moduleList=CircosHeatmap('Heatmap01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3),
+Circos(moduleList=CircosHeatmap('Heatmap01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3,animationDisplay = TRUE),
 genome = list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"=27905053,
 "4"=1351857,"X"=22422827),
 HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
@@ -305,7 +311,7 @@ HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_heatmap.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_heatmap.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_heatmap.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -324,8 +330,8 @@ HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
 
 histogramData=histogramExample
 Circos(moduleList=CircosHistogram('HISTOGRAM01', data = histogramData,
-fillColor= "#ff7f0e",maxRadius = 210,
-minRadius = 175),genome=list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857),
+fillColor= "#ff7f0e",maxRadius = 210,minRadius = 175,
+animationDisplay = TRUE),genome=list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857),
 outerRadius = 220)
 
 
@@ -338,7 +344,7 @@ outerRadius = 220)
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_histogram.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_histogram.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_histogram.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -373,7 +379,7 @@ data=list(legend1,legend2),size = 20))
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/function_legend.jpeg" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="function_legend.html" class="button" >Interactive demo</a></li>
+													<li><a href="function_legend.html" class="button" >demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -389,7 +395,9 @@ data=list(legend1,legend2),size = 20))
 												<pre><code>library(interacCircos)
 
 lineData=lineExample
-Circos(moduleList=CircosLine('LINE01', data = lineData,maxRadius=200,minRadius=150,color= "#ff0031")+
+Circos(moduleList=CircosLine('LINE01', data = lineData,
+maxRadius=200,minRadius=150,color= "#ff0031",
+animationDisplay = TRUE,animationTime = 4000,animationDelay = 100)+
 CircosBackground('BG01',minRadius = 205,maxRadius = 150))
 
 
@@ -402,7 +410,7 @@ CircosBackground('BG01',minRadius = 205,maxRadius = 150))
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_line.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_line.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_line.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -420,9 +428,10 @@ CircosBackground('BG01',minRadius = 205,maxRadius = 150))
 												<pre><code>library(interacCircos)
 
 linkData=linkExample
-Circos(moduleList=CircosLink('LINK01', data = linkData,LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
-axisPad= 3,labelPad=8,animationDisplay=TRUE,animationDirection="1to2", 
-animationType= "linear" ))
+Circos(moduleList=CircosLink('LINK01', data = linkData,
+LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
+axisPad= 3,labelPad=8,animationDisplay=TRUE,
+animationDirection="1to2",animationType= "linear" ))
 
 
 
@@ -434,7 +443,7 @@ animationType= "linear" ))
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_link.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_link.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_link.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -453,10 +462,12 @@ animationType= "linear" ))
 
 lollipopData=lollipopExample
 arcData=arcExample
-Circos(moduleList=CircosLollipop('Lollipop01', data=lollipopData, fillColor="#9400D3",
-circleSize= 6, strokeColor= "#999999", strokeWidth= "1px", animationDisplay=TRUE, lineWidth= 2,
-realStart= 101219350)+CircosArc('Arc01', outerRadius = 212, innerRadius = 224, data=arcData),
- genome=list("EGFR"=1211),outerRadius = 220,genomeFillColor = c("grey"))
+Circos(moduleList=CircosLollipop('Lollipop01', 
+data=lollipopData, fillColor="#9400D3",circleSize= 6, 
+strokeColor= "#999999", strokeWidth= "1px", 
+animationDisplay=TRUE, lineWidth= 2,realStart= 101219350)+
+CircosArc('Arc01', outerRadius = 212, innerRadius = 224, data=arcData),
+genome=list("EGFR"=1211),outerRadius = 220,genomeFillColor = c("grey"))
 
 
 
@@ -468,7 +479,7 @@ realStart= 101219350)+CircosArc('Arc01', outerRadius = 212, innerRadius = 224, d
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_lollipop.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_lollipop.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_lollipop.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -487,7 +498,9 @@ realStart= 101219350)+CircosArc('Arc01', outerRadius = 212, innerRadius = 224, d
 
 scatterData=scatterExample
 Circos(moduleList=CircosScatter('SCATTER01', data = scatterData,
-radius=180,innerCircleColor= "#3d6390",outerCircleColor= "#99cafe",random_data= 40))
+radius=180,innerCircleColor= "#3d6390",outerCircleColor= "#99cafe",
+random_data= 40,animationDisplay = TRUE,animationDelay = 10,
+animationTime = 1000,animationType = "linear"))
 
 
 
@@ -499,7 +512,7 @@ radius=180,innerCircleColor= "#3d6390",outerCircleColor= "#99cafe",random_data= 
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_scatter.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_scatter.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_scatter.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -520,8 +533,8 @@ snpData=snpExample
 Circos(moduleList=CircosSnp('SNP01', minRadius =150, 
 maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32", 
 circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, 
-SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000, SNPAnimationDelay= 0, 
-SNPAnimationType= "linear") + 
+animationDisplay=TRUE,animationTime= 2000, animationDelay= 0, 
+animationType= "linear") + 
 CircosBackground('BG01',minRadius = 145,maxRadius = 200))
 
 
@@ -534,7 +547,7 @@ CircosBackground('BG01',minRadius = 145,maxRadius = 200))
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_snp.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_snp.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_snp.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -552,7 +565,8 @@ CircosBackground('BG01',minRadius = 145,maxRadius = 200))
 												<pre><code>library(interacCircos)
 
 Circos(moduleList=CircosText('text01', 'Annotation',
- color = '#DD2222', x = -40))
+ color = '#DD2222', x = -40,animationDisplay = TRUE,
+ animationInitialPositionX = 200))
 
 
 
@@ -564,7 +578,7 @@ Circos(moduleList=CircosText('text01', 'Annotation',
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_text.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_text.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_text.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -584,7 +598,8 @@ Circos(moduleList=CircosText('text01', 'Annotation',
 wigData=wigExample
 Circos(moduleList=CircosWig('WIG01', data = wigData, 
 maxRadius= 200,minRadius= 150,strokeColor= "darkblue",
-color= "lightblue",strokeType= "cardinal")+
+color= "lightblue",strokeType= "cardinal",
+animationDisplay = TRUE,animationTime = 3000,animationType="linear")+
 CircosBackground('BG01',minRadius = 205,maxRadius = 150),
 genome=list("chr8"=1000),outerRadius = 220)
 
@@ -598,7 +613,7 @@ genome=list("chr8"=1000),outerRadius = 220)
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Plot viewer</h3>
-												<a class="image"><img src="../images/function_wig.jpeg" height="500" width="500" alt="" /></a>
+												<a class="image"><img src="../images/function_wig.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
 													<li><a href="function_wig.html" class="button" >Interactive demo</a></li>
 												</ul>
@@ -653,7 +668,7 @@ genome=list("chr8"=1000),outerRadius = 220)
 											</ul>
 										</li>
 										<li><a href="data_frame_format.html">data.frame format</a></li>
-										<li><a href="html/all_parameters.html">all parameters</a></li>
+										<li><a href="all_parameters.html">all parameters</a></li>
 									</ul>
 								</nav>
 
