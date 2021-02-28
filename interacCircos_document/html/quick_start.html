@@ -32,11 +32,11 @@
 
 									<!-- Content -->
 										<h2 id="content">I. Installation</h2>
-										<p>interacCircos is available at <a href="https://github.com/mrcuizhe/interacCircos/">github </a> or you can <a href="../download/interacCircos_1.0.0.tar.gz">download</a> here</p>
+										<p>interacCircos is available at <a href="https://github.com/mrcuizhe/interacCircos/">Github </a>/<a href="">Bioconductor</a> or you can <a href="../download/interacCircos_0.99.1.tar.gz">download</a> here</p>
 										<div class="row">
 											<div class="col-6 col-12-small">
 												<h3>Install from Github</h3>
-												<pre><code># You need devtools for that
+												<pre><code># Install devtools first!
 if (!require('devtools')){install.packages('devtools')}
 
 devtools::install_github('mrcuizhe/interacCircos')
@@ -51,6 +51,23 @@ devtools::install_github('mrcuizhe/interacCircos')
 
 install.packages("PATH/TO/PACKAGE/interacCircos_X.X.X.tar.gz", repos = NULL, 
 type = "source")
+
+# R package of htmlwidgets, RColorBrewer, plyr, jsonlite
+# and grDevices are required !  
+</code></pre>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>Install from Bioconductor</h3>
+												<pre><code>#Install Bioconductor first!
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    {install.packages("BiocManager")}
+BiocManager::install(version = "3.12")
+
+BiocManager::install("interacCircos")
 
 # R package of htmlwidgets, RColorBrewer, plyr, jsonlite
 # and grDevices are required !  
@@ -90,7 +107,7 @@ Circos(zoom=FALSE)
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/quick_start1.jpeg" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="quick_start1.html" class="button" >Interactive demo</a></li>
+													<li><a href="quick_start1.html" class="button" >demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -116,7 +133,7 @@ Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/quick_start2.jpeg" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="quick_start2.html" class="button" >Interactive demo</a></li>
+													<li><a href="quick_start2.html" class="button" >demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -142,7 +159,7 @@ Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/quick_start3.jpeg" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="quick_start3.html" class="button" >Interactive demo</a></li>
+													<li><a href="quick_start3.html" class="button" >demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -169,7 +186,7 @@ genomeTicksScale = 10,genomeLabelDisplay = FALSE)
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/quick_start4.jpeg" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="uick_start4.html" class="button" >Interactive demo</a></li>
+													<li><a href="uick_start4.html" class="button" >demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -252,6 +269,8 @@ saveWidget(plot, "plot.html")
 										</li>
 										<li><a href="data_frame_format.html">data.frame format</a></li>
 										<li><a href="all_parameters.html">all parameters</a></li>
+										<li><a href="real_data_tutorial.html">Real data tutorial</a></li>
+										<li><a href="users_from_rcircos.html">Users from RCircos</a></li>
 									</ul>
 								</nav>
 

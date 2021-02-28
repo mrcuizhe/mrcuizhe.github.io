@@ -1,0 +1,512 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>interacCircos document</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo"><strong>interacCircos document</strong> by Zhe Cui</a>
+									<ul class="icons">
+										<li><a href="https://github.com/mrcuizhe/interacCircos/issues/" class="fab fa-github"><span class="label"></span></a></li>
+										<li><a href="http://bioinformatics.hit.edu.cn" class="fab fa-internet-explorer"><span class="label"></span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 id="users_from_rcircos">Users from RCircos</h1>
+									</header>
+
+									<!-- Content -->
+										<h2 id="content">Introduction</h2>
+										<p><a href="https://cran.r-project.org/web/packages/RCircos/index.html">RCircos</a> is a simple and flexible R package for generating 2D Circos plot, which includes heatmap, histogram, lines, scatter and other types of plot.</p>
+										<p>In order to illustrate the simplicity of <b>interacCircos</b> and help users porting their existing <b>RCircos</b> code to <b>interacCircos</b>, we compared the generation of a multi-track Circos plot using RCircos and interacCircos.</p>
+										<p>The full scripts for both package are available here: <a href="../download/rcircos-demo.R">RCircos-demo.R</a> or <a href="../download/interacCircos-demo.R">interacCircos-demo.R</a></p>
+										<p>The step by step comparison is displayed below:</p>
+										<h2 id="step1">Step 1. Draw chromosome track</h2>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>RCircos</h3>
+												<pre><code>library(RCircos)
+
+# Load hg19 and draw ideogram in RCircos
+data(UCSC.HG19.Human.CytoBandIdeogram) 
+RCircos.Set.Core.Components(cyto.info=UCSC.HG19.Human.CytoBandIdeogram,
+chr.exclude=NULL,tracks.inside=5,tracks.outside=0)
+RCircos.Set.Plot.Area()
+RCircos.Chromosome.Ideogram.Plot() 
+
+
+
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>interacCircos</h3>
+												<pre><code>library(interacCircos)
+
+# The hg19 reference is already embedded in interacCircos,
+# You can directly load hg19 by using 'genome' parameters,
+# and load ideogram for hg19 by hg19_ideogram
+
+# Customize ideogram track and its animation
+ideogram_track<-CircosArc("arc01",data=hg19_ideogram,
+innerRadius = 210,outerRadius = 230,animationDisplay = TRUE,
+animationDelay=10,animationTime = 100)
+
+# Generate chromosome track and ideogram track
+Circos(genome="hg19",moduleList=ideogram_track,innerRadius = 238,
+outerRadius = 240)
+
+
+</code></pre>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<h3>RCircos - Static plot</h3>
+												<a class="image"><img src="../images/rcircos_step1.jpeg" height="500" width="500" alt="" /></a>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3>interacCircos - Interactive plot</h3>
+												<a class="image"><img src="../images/interacCircos_step1.gif" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+													<li><a href="interacCircos_step1.html" class="button" >Interactive demo</a></li>
+												</ul>
+											</div>
+										</div>
+
+									<hr class="major" />
+
+									<h2 id="step2">Step 2. Add functional tracks into plot</h2>
+									<h3 id="step2_scatter">I. Add scatter track</h3>
+									<p>Note that we extracted the scatter data of RCircos for interacCircos. The data processing script for scatter data is available <a href="../download/rcircos_scatter_data_to_interacCircos.R">here</a>, the extracted data is available <a href="../download/scatterData.rda">here</a>.</p>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>RCircos</h3>
+											<pre><code>library(RCircos)
+
+# Load hg19 and draw ideogram in RCircos
+data(UCSC.HG19.Human.CytoBandIdeogram) 
+RCircos.Set.Core.Components(cyto.info=UCSC.HG19.Human.CytoBandIdeogram,
+chr.exclude=NULL,tracks.inside=5,tracks.outside=0)
+RCircos.Set.Plot.Area()
+RCircos.Chromosome.Ideogram.Plot() 
+
+#Load scatter data
+data(RCircos.Scatter.Data)
+
+# Add scatter track into plot
+RCircos.Scatter.Plot(RCircos.Scatter.Data, data.col=5,
+track.num=1, side='in', by.fold=1) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>interacCircos</h3>
+											<pre><code>llibrary(interacCircos)
+
+# The hg19 reference is already embedded in interacCircos,
+# You can directly load hg19 by using 'genome' parameters,
+# and load ideogram for hg19 by hg19_ideogram
+
+# Customize ideogram track and its animation
+ideogram_track<-CircosArc("arc01",data=hg19_ideogram,
+                          innerRadius = 210,outerRadius = 230,
+                          animationDisplay = TRUE,
+                          animationDelay=10,animationTime = 100)
+
+# Load scatter data
+load("scatterData.rda")
+
+# The snp track and its background
+# The SNP function of interacCircos is same as scatter of RCircos
+snp_track<-CircosSnp("snp01",data=scatterData,minRadius = 183,
+					maxRadius = 205,animationDisplay = TRUE,
+                    animationDelay = 0,animationTime = 2000,
+                    animationType = "linear",circleSize = 1)
+bg_track1<-CircosBackground("bg01",axisShow = TRUE,minRadius = 183,
+						maxRadius = 205,fillColors ="rgb(241,220,179)",
+                        animationDisplay = TRUE,animationType = "linear")
+
+# Generate chromosome track and ideogram track
+Circos(genome="hg19",moduleList=ideogram_track+snp_track+bg_track1,
+		innerRadius = 238,outerRadius = 240)
+
+</code></pre>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>RCircos - Static plot</h3>
+											<a class="image"><img src="../images/rcircos_step2_scatter.jpeg" height="500" width="500" alt="" /></a>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>interacCircos - Interactive plot</h3>
+											<a class="image"><img src="../images/interacCircos_step2_snp.gif" height="500" width="500" alt="" /></a>
+											<ul class="actions" >
+												<li><a href="interacCircos_step2_snp.html" class="button" >Interactive demo</a></li>
+											</ul>
+										</div>
+									</div>
+								
+									<h3 id="step2_histogram">II. Add histogram track</h3>
+									<p>Note that we extracted the histogram data of RCircos for interacCircos. The data processing script for histogram data is available <a href="../download/rcircos_histogram_data_to_interacCircos.R">here</a>, the extracted data is available <a href="../download/histogramData.rda">here</a>.</p>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>RCircos</h3>
+											<pre><code>library(RCircos)
+
+# Load hg19 and draw ideogram in RCircos
+data(UCSC.HG19.Human.CytoBandIdeogram) 
+RCircos.Set.Core.Components(cyto.info=UCSC.HG19.Human.CytoBandIdeogram,
+                     chr.exclude=NULL,tracks.inside=5,tracks.outside=0)
+RCircos.Set.Plot.Area()
+RCircos.Chromosome.Ideogram.Plot() 
+
+# Load data for scatter track
+data(RCircos.Scatter.Data)
+
+# Add scatter track into plot
+RCircos.Scatter.Plot(RCircos.Scatter.Data, data.col=5,track.num=1, 
+					side='in', by.fold=1) 
+
+# Load data for histogram track
+data(RCircos.Histogram.Data)
+
+# Add histogram track into plot
+RCircos.Histogram.Plot(RCircos.Histogram.Data,data.col = 4,
+					track.num = 3,side = 'in')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>interacCircos</h3>
+											<pre><code>library(interacCircos)
+
+# The hg19 reference is already embedded in interacCircos,
+# You can directly load hg19 by using 'genome' parameters,
+# and load ideogram for hg19 by hg19_ideogram
+
+# Customize ideogram track and its animation
+ideogram_track<-CircosArc("arc01",data=hg19_ideogram,
+                          innerRadius = 210,outerRadius = 230,
+                          animationDisplay = TRUE,
+                          animationDelay=10,animationTime = 100)
+
+# Load scatter data
+load("scatterData.rda")
+
+# The snp track and its background
+# The SNP function of interacCircos is same as scatter of RCircos
+snp_track<-CircosSnp("snp01",data=scatterData,minRadius = 183,
+				maxRadius = 205,animationDisplay = TRUE,animationDelay = 0,
+				animationTime = 2000,animationType = "linear",circleSize = 1)
+bg_track1<-CircosBackground("bg01",axisShow = TRUE,minRadius = 183,maxRadius = 205,
+		fillColors ="rgb(241,220,179)",animationDisplay = TRUE,animationType = "linear")
+
+# Load histogram data
+load("histogramData.rda")
+
+# The histogram track
+histogram_track<-CircosHistogram("histogram01",data=histogramData,
+				minRadius = 143,maxRadius = 165,animationDisplay = TRUE)
+bg_track2<-CircosBackground("bg02",axisShow = TRUE,minRadius = 143,
+				maxRadius = 165,fillColors ="rgb(241,220,179)",
+                animationDisplay = TRUE,animationType = "linear")
+
+# Generate chromosome track and ideogram track
+Circos(genome="hg19",moduleList=ideogram_track+snp_track+bg_track1+
+		histogram_track+bg_track2,innerRadius = 238,outerRadius = 240)
+
+</code></pre>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>RCircos - Static plot</h3>
+											<a class="image"><img src="../images/rcircos_step2_histogram.jpeg" height="500" width="500" alt="" /></a>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>interacCircos - Interactive plot</h3>
+											<a class="image"><img src="../images/interacCircos_step2_histogram.gif" height="500" width="500" alt="" /></a>
+											<ul class="actions" >
+												<li><a href="interacCircos_step2_histogram.html" class="button" >Interactive demo</a></li>
+											</ul>
+										</div>
+									</div>
+
+									<h3 id="step2_link">III. Add link track</h3>
+									<p>Note that we extracted the link data of RCircos for interacCircos. The data processing script for link data is available <a href="../download/rcircos_link_data_to_interacCircos.R">here</a>, the extracted data is available <a href="../download/linkData.rda">here</a>.</p>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>RCircos</h3>
+											<pre><code>library(RCircos)
+
+# Load hg19 and draw ideogram in RCircos
+data(UCSC.HG19.Human.CytoBandIdeogram) 
+RCircos.Set.Core.Components(cyto.info=UCSC.HG19.Human.CytoBandIdeogram,
+                    chr.exclude=NULL,tracks.inside=5,tracks.outside=0)
+RCircos.Set.Plot.Area()
+RCircos.Chromosome.Ideogram.Plot() 
+
+# Load data for scatter track
+data(RCircos.Scatter.Data)
+
+# Add scatter track into plot
+RCircos.Scatter.Plot(RCircos.Scatter.Data, data.col=5,track.num=1, 
+					side='in', by.fold=1) 
+
+# Load data for histogram track
+data(RCircos.Histogram.Data)
+
+# Add histogram track into plot
+RCircos.Histogram.Plot(RCircos.Histogram.Data,data.col = 4,track.num = 3,
+						side = 'in')
+
+# Load data for link track
+data(RCircos.Link.Data)
+
+# Add link track into plot
+RCircos.Link.Plot(RCircos.Link.Data,track.num=4,TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>interacCircos</h3>
+											<pre><code>library(interacCircos)
+
+# The hg19 reference is already embedded in interacCircos,
+# You can directly load hg19 by using 'genome' parameters,
+# and load ideogram for hg19 by hg19_ideogram
+
+# Customize ideogram track and its animation
+ideogram_track<-CircosArc("arc01",data=hg19_ideogram,
+            innerRadius = 210,outerRadius = 230,animationDisplay = TRUE,
+            animationDelay=10,animationTime = 100)
+
+# Load scatter data
+load("scatterData.rda")
+
+# The snp track and its background
+# The SNP function of interacCircos is same as scatter of RCircos
+snp_track<-CircosSnp("snp01",data=scatterData,minRadius = 183,maxRadius = 205,
+			animationDisplay = TRUE,animationDelay = 0,animationTime = 2000,
+			animationType = "linear",circleSize = 1)
+bg_track1<-CircosBackground("bg01",axisShow = TRUE,minRadius = 183,maxRadius = 205,
+	fillColors ="rgb(241,220,179)",animationDisplay = TRUE,animationType = "linear")
+
+# Load histogram data
+load("histogramData.rda")
+
+# The histogram track
+histogram_track<-CircosHistogram("histogram01",data=histogramData,minRadius = 143,
+							maxRadius = 165,animationDisplay = TRUE)
+bg_track2<-CircosBackground("bg02",axisShow = TRUE,minRadius = 143,maxRadius = 165,
+							fillColors ="rgb(241,220,179)",
+                            animationDisplay = TRUE,animationType = "linear")
+
+# Load link data
+load("linkData.rda")
+
+# The link track
+link_track01<-CircosLink("link01",data=linkData[which(linkData$g1chr==linkData$g2chr),],
+				radius = 140,width = 1,fillColor = "red",animationDisplay =TRUE,
+				animationTime = 4000,animationDelay = 200)
+link_track02<-CircosLink("link02",data=linkData[which(!linkData$g1chr==linkData$g2chr),],
+				radius = 140,width = 1,fillColor = "blue",animationDisplay = TRUE,
+				animationTime = 4000,animationDelay = 200)
+
+# Generate chromosome track and ideogram track
+Circos(genome="hg19",moduleList=ideogram_track+snp_track+bg_track1+histogram_track+
+		bg_track2+link_track01+link_track02,innerRadius = 238,outerRadius = 240)
+
+</code></pre>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>RCircos - Static plot</h3>
+											<a class="image"><img src="../images/rcircos_step2_link.jpeg" height="500" width="500" alt="" /></a>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>interacCircos - Interactive plot</h3>
+											<a class="image"><img src="../images/interacCircos_step2_link.gif" height="500" width="500" alt="" /></a>
+											<ul class="actions" >
+												<li><a href="interacCircos_step2_link.html" class="button" >Interactive demo</a></li>
+											</ul>
+										</div>
+									</div>					
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<li><a href="quick_start.html">Quick start</a></li>
+										<li>
+											<span class="opener">Function</span>
+											<ul>
+												<li><a href="function.html#arc">CircosArc()</a></li>
+												<li><a href="function.html#auxLine">CircosAuxLine()</a></li>
+												<li><a href="function.html#background">CircosBackground()</a></li>
+												<li><a href="function.html#bubble">CircosBubble()</a></li>
+												<li><a href="function.html#chord">CircosChord()</a></li>
+												<li><a href="function.html#chord.p">CircosChord.p()</a></li>
+												<li><a href="function.html#cnv">CircosCnv()</a></li>
+												<li><a href="function.html#gene">CircosGene()</a></li>
+												<li><a href="function.html#heatmap">CircosHeatmap()</a></li>
+												<li><a href="function.html#histogram">CircosHistogram()</a></li>
+												<li><a href="function.html#legend">CircosLegend()</a></li>
+												<li><a href="function.html#line">CircosLine()</a></li>
+												<li><a href="function.html#link">CircosLink()</a></li>
+												<li><a href="function.html#lollipop">CircosLollipop()</a></li>
+												<li><a href="function.html#scatter">CircosScatter()</a></li>
+												<li><a href="function.html#snp">CircosSnp()</a></li>
+												<li><a href="function.html#text">CircosText()</a></li>
+												<li><a href="function.html#wig">CircosWig()</a></li>
+											</ul>
+										</li>
+										<li><a href="data_frame_format.html">data.frame format</a></li>
+										<li><a href="all_parameters.html">all parameters</a></li>
+										<li><a href="real_data_tutorial.html">Real data tutorial</a></li>
+										<li><a href="users_from_rcircos.html">Users from RCircos</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Gallery</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="gallery1.html" class="image"><img src="../images/gallery1.png" alt="" /></a>
+											<p align="center"><a href="../download/gallery1.zip">Download source</a></p>
+											<p>An interactive Circos plot indicating QTL involved in net blotch resistance and displayed using histogram, arc, link, background, text function.
+											</p>
+										</article>
+										<article>
+											<a href="gallery2.html" class="image"><img src="../images/gallery2.png" alt="" /></a>
+											<p align="center"><a href="../download/gallery2.zip">Download source</a></p>
+											<p>An interactive Circos plot displaying the comparative genomic mapping in C. rubella(CR), A. lyrata(AL) and displayed using chord, wig, background function.
+											</p>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Communication</h2>
+									</header>
+									<p>I'm a PhD student at Harbin Institute of Technology working on genome visualization and single cell ATAC sequencing.<br>If you have any questions about interacCircos, you are very welcome to contact me through github or email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:cuizhe@hit.edu.cn">cuizhe@hit.edu.cn</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/mrcuizhe/interacCircos/">mrcuizhe/interacCircos</a></li>
+									</ul>
+									<p>If you are interested in our lab, you are very welcome to visit our website!</p>
+									<ul class="contact">
+										<li class="icon solid fa-home"><a href="http://bioinformatics.hit.edu.cn">bioinformatics.hit.edu.cn</a></li>
+									
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">Copyright @ Harbin Institute of Technology, China.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
