@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>interacCircos document</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../index.html" class="logo"><strong>interacCircos document</strong> by Zhe Cui</a>
+									<ul class="icons">
+										<li><a href="https://github.com/mrcuizhe/interacCircos/issues/" class="fab fa-github"><span class="label"></span></a></li>
+										<li><a href="http://bioinformatics.hit.edu.cn" class="fab fa-internet-explorer"><span class="label"></span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 id="real_data_tutorial">Real Data Tutorial</h1>
+									</header>
+
+									<!-- Content -->
+										<h2 id="content">From real SNP data</h2>
+										<p>Normally, the SNP data is stored in .vcf format, thus we use an real <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj4wvXXst_uAhUDXM0KHc7QALAQFjABegQIChAC&url=https%3A%2F%2Fsamtools.github.io%2Fhts-specs%2FVCFv4.2.pdf&usg=AOvVaw3UrlHdXnBVzm0df9OE90Rm">VCF</a> file as example here.</p>
+										<p>The example of real SNP file is available <a href="../download/snpExample_random_from_1000G.vcf">here</a></p>
+										<h3 id="content">I. Load real SNP data</h3>
+										<p>First, we need to extract the effective SNP columns from the original VCF file</p>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<pre><code># Load original SNP data
+library(interacCircos)
+library(stringr)
+
+SNP_data<-read.table("snpExample_random_from_1000G.vcf",sep = "\t")
+SNP_data<-SNP_data[,c(1,2,8)]
+colnames(SNP_data)<-c("chr","pos","value")
+SNP_data$value<-as.integer(str_split_fixed(str_split_fixed(SNP_data$value,
+ ";", 2)[,1],"=",2)[,2])
+
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<p>After processing, the <b>SNP_data</b> should looks like below:</p>
+												<div class="table-wrapper">
+													<table class="alt">
+														<thead>
+															<tr>
+																<th>chr</th>
+																<th>pos</th>
+																<th>value</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>1</td>
+																<td>70573281</td>
+																<td>9</td>
+															</tr>
+															<tr>
+																<td>1</td>
+																<td>167102542</td>
+																<td>1</td>
+															</tr>
+															<tr>
+																<td>1</td>
+																<td>238165263</td>
+																<td>1</td>
+															</tr>
+															<tr>
+																<td>2</td>
+																<td>52714177</td>
+																<td>1827</td>
+															</tr>
+															<tr>
+																<td>...</td>
+																<td>...</td>
+																<td>...</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+									<hr class="major" />
+
+									<h3 id="content">II. Construct a chromosome track</h3>
+										<p>In order to load other functional tracks, users should first construct a chromosome track!</p>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<pre><code># Load original SNP data
+library(interacCircos)
+library(stringr)
+
+SNP_data<-read.table("snpExample_random_from_1000G.vcf",sep = "\t")
+SNP_data<-SNP_data[,c(1,2,8)]
+colnames(SNP_data)<-c("chr","pos","value")
+SNP_data$value<-as.integer(str_split_fixed(str_split_fixed(SNP_data$value,
+ ";", 2)[,1],"=",2)[,2])
+
+Circos()
+
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3></h3>
+												<a class="image"><img src="../images/real_data_tutorial1.jpeg" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+												<li><a href="real_data_tutorial1.html" class="button" >Interactive demo</a></li>
+											</ul>
+											</div>
+										</div>
+
+									<hr class="major" />
+
+									<h3 id="content">III. Add a snp track</h3>
+										<p>In order to add snp track, users should first constrct a <b>CircosSNP()</b> function and then load this track on <b>Circos()</b> function</p>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<pre><code># Load original SNP data
+library(interacCircos)
+library(stringr)
+
+SNP_data<-read.table("snpExample_random_from_1000G.vcf",sep = "\t")
+SNP_data<-SNP_data[,c(1,2,8)]
+colnames(SNP_data)<-c("chr","pos","value")
+SNP_data$value<-as.integer(str_split_fixed(str_split_fixed(SNP_data$value, ";", 2)[,1],"=",2)[,2])
+
+SNP_track<-CircosSnp('SNP01', minRadius =150, maxRadius = 190, data = SNP_data,fillColor= "#9ACD32",
+                                      circleSize= 2)
+
+Circos(moduleList = SNP_track)
+
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3></h3>
+												<a class="image"><img src="../images/real_data_tutorial2.png" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+												<li><a href="real_data_tutorial2.html" class="button" >Interactive demo</a></li>
+											</ul>
+											</div>
+										</div>
+									
+									<hr class="major" />
+
+									<h3 id="content">IV. Add a background track</h3>
+										<p>It's not pretty enough when only add a snp track, users can add other tracks to increase readability. </p>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<pre><code># Load original SNP data
+library(interacCircos)
+library(stringr)
+
+SNP_data<-read.table("snpExample_random_from_1000G.vcf",sep = "\t")
+SNP_data<-SNP_data[,c(1,2,8)]
+colnames(SNP_data)<-c("chr","pos","value")
+SNP_data$value<-as.integer(str_split_fixed(str_split_fixed(SNP_data$value, ";", 2)[,1],"=",2)[,2])
+
+SNP_track<-CircosSnp('SNP01', minRadius =150, maxRadius = 190, data = SNP_data,fillColor= "#9ACD32",
+                                      circleSize= 2)
+Bg_track<-CircosBackground('BG01',minRadius = 145, maxRadius = 200)
+
+Circos(moduleList = SNP_track+Bg_track)
+
+
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3></h3>
+												<a class="image"><img src="../images/real_data_tutorial3.png" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+												<li><a href="real_data_tutorial3.html" class="button" >Interactive demo</a></li>
+											</ul>
+											</div>
+										</div>
+
+										<hr class="major" />
+
+									<h3 id="content">V. Add animation for tracks</h3>
+										<p>As you know, interacCircos is interactive as it can add animation and mouse event to plot. Here, we add a <b>mouse move</b> event and a <b>opening animation</b> for snp track</p>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<pre><code># Load original SNP data
+library(interacCircos)
+library(stringr)
+
+SNP_data<-read.table("snpExample_random_from_1000G.vcf",sep = "\t")
+SNP_data<-SNP_data[,c(1,2,8)]
+colnames(SNP_data)<-c("chr","pos","value")
+SNP_data$value<-as.integer(str_split_fixed(str_split_fixed(SNP_data$value, ";", 2)[,1],"=",2)[,2])
+
+SNP_track<-CircosSnp('SNP01', minRadius =150, maxRadius = 190, data = SNP_data,fillColor= "#9ACD32",
+                                      circleSize= 2, animationDisplay =TRUE,animationTime= 2000,animationDelay= 0,
+                                      animationType= "linear")
+Bg_track<-CircosBackground('BG01',minRadius = 145, maxRadius = 200)
+
+Circos(moduleList = SNP_track+Bg_track,SNPMouseEvent = TRUE,SNPMouseOverDisplay = TRUE)
+
+
+
+
+
+
+
+</code></pre>
+											</div>
+											<div class="col-6 col-12-small">
+												<h3></h3>
+												<a class="image"><img src="../images/real_data_tutorial4.gif" height="500" width="500" alt="" /></a>
+												<ul class="actions" >
+												<li><a href="real_data_tutorial4.html" class="button" >Interactive demo</a></li>
+											</ul>
+											</div>
+										</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Homepage</a></li>
+										<li><a href="quick_start.html">Quick start</a></li>
+										<li>
+											<span class="opener">Function</span>
+											<ul>
+												<li><a href="function.html#arc">CircosArc()</a></li>
+												<li><a href="function.html#auxLine">CircosAuxLine()</a></li>
+												<li><a href="function.html#background">CircosBackground()</a></li>
+												<li><a href="function.html#bubble">CircosBubble()</a></li>
+												<li><a href="function.html#chord">CircosChord()</a></li>
+												<li><a href="function.html#chord.p">CircosChord.p()</a></li>
+												<li><a href="function.html#cnv">CircosCnv()</a></li>
+												<li><a href="function.html#gene">CircosGene()</a></li>
+												<li><a href="function.html#heatmap">CircosHeatmap()</a></li>
+												<li><a href="function.html#histogram">CircosHistogram()</a></li>
+												<li><a href="function.html#legend">CircosLegend()</a></li>
+												<li><a href="function.html#line">CircosLine()</a></li>
+												<li><a href="function.html#link">CircosLink()</a></li>
+												<li><a href="function.html#lollipop">CircosLollipop()</a></li>
+												<li><a href="function.html#scatter">CircosScatter()</a></li>
+												<li><a href="function.html#snp">CircosSnp()</a></li>
+												<li><a href="function.html#text">CircosText()</a></li>
+												<li><a href="function.html#wig">CircosWig()</a></li>
+											</ul>
+										</li>
+										<li><a href="data_frame_format.html">data.frame format</a></li>
+										<li><a href="all_parameters.html">all parameters</a></li>
+										<li><a href="real_data_tutorial.html">Real data tutorial</a></li>
+										<li><a href="users_from_rcircos.html">Users from RCircos</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Gallery</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="gallery1.html" class="image"><img src="../images/gallery1.png" alt="" /></a>
+											<p align="center"><a href="../download/gallery1.zip">Download source</a></p>
+											<p>An interactive Circos plot indicating QTL involved in net blotch resistance and displayed using histogram, arc, link, background, text function.
+											</p>
+										</article>
+										<article>
+											<a href="gallery2.html" class="image"><img src="../images/gallery2.png" alt="" /></a>
+											<p align="center"><a href="../download/gallery2.zip">Download source</a></p>
+											<p>An interactive Circos plot displaying the comparative genomic mapping in C. rubella(CR), A. lyrata(AL) and displayed using chord, wig, background function.
+											</p>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Communication</h2>
+									</header>
+									<p>I'm a PhD student at Harbin Institute of Technology working on genome visualization and single cell ATAC sequencing.<br>If you have any questions about interacCircos, you are very welcome to contact me through github or email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:cuizhe@hit.edu.cn">cuizhe@hit.edu.cn</a></li>
+										<li class="icon brands fa-github"><a href="https://github.com/mrcuizhe/interacCircos/">mrcuizhe/interacCircos</a></li>
+									</ul>
+									<p>If you are interested in our lab, you are very welcome to visit our website!</p>
+									<ul class="contact">
+										<li class="icon solid fa-home"><a href="http://bioinformatics.hit.edu.cn">bioinformatics.hit.edu.cn</a></li>
+									
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">Copyright @ Harbin Institute of Technology, China.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
