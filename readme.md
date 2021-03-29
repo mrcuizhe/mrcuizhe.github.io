@@ -1,3 +1,3 @@
 # Welcome to Zhe Cui's website
 
-The document of interacCircos is available at [interacCircos-document](https://mrcuizhe.github.io/interacCircos_document/index.html)
+The documentation of interacCircos is available at [interacCircos-documentation](https://mrcuizhe.github.io/interacCircos_documentation/index.html)
