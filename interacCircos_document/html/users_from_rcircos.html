@@ -130,6 +130,7 @@ track.num=1, side='in', by.fold=1)
 
 
 
+
 </code></pre>
 										</div>
 										<div class="col-6 col-12-small">
@@ -161,7 +162,8 @@ bg_track1<-CircosBackground("bg01",axisShow = TRUE,minRadius = 183,
 
 # Generate chromosome track and ideogram track
 Circos(genome="hg19",moduleList=ideogram_track+snp_track+bg_track1,
-		innerRadius = 238,outerRadius = 240)
+		innerRadius = 238,outerRadius = 240,SNPMouseOverDisplay = TRUE,
+		SNPMouseOverTooltipsSetting = "style1",SNPMouseOutDisplay = TRUE,SNPMouseOutColor = NULL)
 
 </code></pre>
 										</div>
@@ -222,6 +224,10 @@ RCircos.Histogram.Plot(RCircos.Histogram.Data,data.col = 4,
 
 
 
+
+
+
+
 </code></pre>
 										</div>
 										<div class="col-6 col-12-small">
@@ -261,7 +267,11 @@ bg_track2<-CircosBackground("bg02",axisShow = TRUE,minRadius = 143,
 
 # Generate chromosome track and ideogram track
 Circos(genome="hg19",moduleList=ideogram_track+snp_track+bg_track1+
-		histogram_track+bg_track2,innerRadius = 238,outerRadius = 240)
+		histogram_track+bg_track2,innerRadius = 238,outerRadius = 240,
+		SNPMouseOverDisplay = TRUE,SNPMouseOverTooltipsSetting = "style1",
+		SNPMouseOutDisplay = TRUE,SNPMouseOutColor = NULL,
+		HISTOGRAMMouseOverDisplay = TRUE,HISTOGRAMMouseOverTooltipsSetting = "style1",
+       HISTOGRAMMouseOutDisplay = TRUE,HISTOGRAMMouseOutColor = NULL)
 
 </code></pre>
 										</div>
@@ -332,6 +342,10 @@ RCircos.Link.Plot(RCircos.Link.Data,track.num=4,TRUE)
 
 
 
+
+
+
+
 </code></pre>
 										</div>
 										<div class="col-6 col-12-small">
@@ -381,7 +395,11 @@ link_track02<-CircosLink("link02",data=linkData[which(!linkData$g1chr==linkData$
 
 # Generate chromosome track and ideogram track
 Circos(genome="hg19",moduleList=ideogram_track+snp_track+bg_track1+histogram_track+
-		bg_track2+link_track01+link_track02,innerRadius = 238,outerRadius = 240)
+		bg_track2+link_track01+link_track02,innerRadius = 238,outerRadius = 240,
+		SNPMouseOverDisplay = TRUE,SNPMouseOverTooltipsSetting = "style1",
+		SNPMouseOutDisplay = TRUE,SNPMouseOutColor = NULL,
+		HISTOGRAMMouseOverDisplay = TRUE,HISTOGRAMMouseOverTooltipsSetting = "style1",
+       HISTOGRAMMouseOutDisplay = TRUE,HISTOGRAMMouseOutColor = NULL)
 
 </code></pre>
 										</div>

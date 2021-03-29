@@ -226,7 +226,8 @@ SNP_track<-CircosSnp('SNP01', minRadius =150, maxRadius = 190, data = SNP_data,f
                                       animationType= "linear")
 Bg_track<-CircosBackground('BG01',minRadius = 145, maxRadius = 200)
 
-Circos(moduleList = SNP_track+Bg_track,SNPMouseEvent = TRUE,SNPMouseOverDisplay = TRUE)
+Circos(moduleList = SNP_track+Bg_track,SNPMouseEvent = TRUE,SNPMouseOverDisplay = TRUE,
+SNPMouseOverTooltipsSetting = "style1",SNPMouseOutDisplay = TRUE,SNPMouseOutColor = NULL)
 
 
 

@@ -41,7 +41,9 @@ arcData=arcExample
 Circos(moduleList=CircosArc('Arc01', outerRadius = 212, 
 innerRadius = 224, data=arcData,animationDisplay = TRUE),
 genome=list("EGFR"=1211),
-outerRadius = 220,genomeFillColor = c("grey"))
+outerRadius = 220,genomeFillColor = c("grey"),
+ARCMouseOverDisplay = TRUE,ARCMouseOverTooltipsSetting = "style1",
+ARCMouseOutDisplay = TRUE,ARCMouseOutColor = NULL)
 
 
 
@@ -85,7 +87,7 @@ animationDelay =0,animationTime = 1000))
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/function_auxline.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="function_auxline.html" class="button" >Interactive demo</a></li>
+													<li><a href="function_auxline.html" class="button" >Live demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -115,7 +117,7 @@ borderSize = 1,animationDisplay = TRUE))
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/function_background.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="function_background.html" class="button" >Interactive demo</a></li>
+													<li><a href="function_background.html" class="button" >Live demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -137,7 +139,8 @@ bubbleMinSize = 2, maxColor = "red", minColor = "yellow", totalLayer =3,
 animationDisplay = TRUE, animationType="linear"),
 genome = list("2L"=23011544,"2R"=21146708,
 "3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857), 
-BUBBLEMouseOverDisplay =TRUE,innerRadius = 236)
+BUBBLEMouseOverDisplay =TRUE,BUBBLEMouseOverTooltipsSetting = "style1",
+innerRadius = 236,BUBBLEMouseOutDisplay = TRUE,BUBBLEMouseOutColor = NULL)
 
 
 
@@ -183,7 +186,7 @@ genomeLabelDisplay = FALSE,CHORDMouseEvent =TRUE,CHORDMouseOverDisplay = TRUE)
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/function_chord.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="function_chord.html" class="button" >Interactive demo</a></li>
+													<li><a href="function_chord.html" class="button" >Live demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -233,7 +236,9 @@ Circos(moduleList=CircosCnv('Cnv01',maxRadius =175, minRadius =116,
 data =cnvData,width=2,color = "#4876FF",animationDisplay = TRUE,
 animationType = "linear",animationTime = 500)+
 CircosBackground("bg01",minRadius = 116,maxRadius = 175,
-fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE)
+fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE,
+CNVMouseOverTooltipsSetting = "style1",CNVMouseOutDisplay = TRUE,
+CNVMouseOutColor = NULL)
 
 
 
@@ -263,10 +268,13 @@ fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE)
 												<pre><code>library(interacCircos)
 
 geneData=geneExample
-Circos(moduleList=CircosGene('Gene01', outerRadius = 195, innerRadius = 180, data=geneData,arrowGap = 10,
- arrowColor = "black",arrowSize = "12px",cdsColor = "#1e77b3",cdsStrokeColor = "#1e77b3",cdsStrokeWidth= 5,
- utrWidth= -2,utrColor= "#fe7f0e",utrStrokeColor= "#fe7f0e",animationDisplay = TRUE),genome =list("EGFR"=1000),
- outerRadius = 220)
+Circos(moduleList=CircosGene('Gene01', outerRadius = 195, innerRadius = 180, 
+data=geneData,arrowGap = 10, arrowColor = "black",arrowSize = "12px",
+cdsColor = "#1e77b3",cdsStrokeColor = "#1e77b3",cdsStrokeWidth= 0,
+utrWidth= 0,utrColor= "#fe7f0e",utrStrokeColor= "#fe7f0e",
+animationDisplay = TRUE),genome =list("EGFR"=1000),outerRadius = 220,
+GENEMouseOverDisplay = TRUE,GENEMouseOverTooltipsSetting = "style1",
+GENEMouseOutDisplay = TRUE,GENEMouseOutColor = NULL)
 
 
 
@@ -296,10 +304,12 @@ Circos(moduleList=CircosGene('Gene01', outerRadius = 195, innerRadius = 180, dat
 												<pre><code>library(interacCircos)
 
 heatmapData=heatmapExample
-Circos(moduleList=CircosHeatmap('Heatmap01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3,animationDisplay = TRUE),
+Circos(moduleList=CircosHeatmap('Heatmap01', maxRadius= 180, minRadius = 100, 
+data=heatmapData,totalLayer = 3,animationDisplay = TRUE),
 genome = list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"=27905053,
-"4"=1351857,"X"=22422827),
-HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
+"4"=1351857,"X"=22422827),HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE,
+HEATMAPMouseOverTooltipsSetting = "style1",HEATMAPMouseOutDisplay = TRUE,
+HEATMAPMouseOutColor = NULL)
 
 
 
@@ -331,8 +341,10 @@ HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
 histogramData=histogramExample
 Circos(moduleList=CircosHistogram('HISTOGRAM01', data = histogramData,
 fillColor= "#ff7f0e",maxRadius = 210,minRadius = 175,
-animationDisplay = TRUE),genome=list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857),
-outerRadius = 220)
+animationDisplay = TRUE),genome=list("2L"=23011544,"2R"=21146708,"3L"=24543557,
+"3R"= 27905053,"X"=22422827,"4"=1351857),outerRadius = 220,
+HISTOGRAMMouseOverDisplay = TRUE,HISTOGRAMMouseOverTooltipsSetting = "style1",
+HISTOGRAMMouseOutDisplay = TRUE,HISTOGRAMMouseOutColor = NULL)
 
 
 
@@ -398,7 +410,9 @@ lineData=lineExample
 Circos(moduleList=CircosLine('LINE01', data = lineData,
 maxRadius=200,minRadius=150,color= "#ff0031",
 animationDisplay = TRUE,animationTime = 4000,animationDelay = 100)+
-CircosBackground('BG01',minRadius = 205,maxRadius = 150))
+CircosBackground('BG01',minRadius = 205,maxRadius = 150),
+LINEMouseOverDisplay = TRUE,LINEMouseOverTooltipsSetting = "style1",
+LINEMouseOutDisplay = TRUE,LINEMouseOutLineStrokeColor = NULL)
 
 
 
@@ -431,7 +445,9 @@ linkData=linkExample
 Circos(moduleList=CircosLink('LINK01', data = linkData,
 LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
 axisPad= 3,labelPad=8,animationDisplay=TRUE,
-animationDirection="1to2",animationType= "linear" ))
+animationDirection="1to2",animationType= "linear" ),
+LINKMouseOverTooltipsSetting = "style1",LINKMouseOverDisplay=TRUE,
+LINKMouseOutDisplay = TRUE)
 
 
 
@@ -467,7 +483,11 @@ data=lollipopData, fillColor="#9400D3",circleSize= 6,
 strokeColor= "#999999", strokeWidth= "1px", 
 animationDisplay=TRUE, lineWidth= 2,realStart= 101219350)+
 CircosArc('Arc01', outerRadius = 212, innerRadius = 224, data=arcData),
-genome=list("EGFR"=1211),outerRadius = 220,genomeFillColor = c("grey"))
+genome=list("EGFR"=1211),outerRadius = 220,genomeFillColor = c("grey"),
+LOLLIPOPMouseOverDisplay = TRUE,LOLLIPOPMouseOverTooltipsSetting = "style1",
+LOLLIPOPMouseOutDisplay = TRUE,LOLLIPOPMouseOutColor = NULL,
+LOLLIPOPMouseOutCircleSize = 6,LOLLIPOPMouseOutCircleStrokeWidth = "1px",
+LOLLIPOPMouseOutCircleStrokeColor = "#999999")
 
 
 
@@ -500,7 +520,10 @@ scatterData=scatterExample
 Circos(moduleList=CircosScatter('SCATTER01', data = scatterData,
 radius=180,innerCircleColor= "#3d6390",outerCircleColor= "#99cafe",
 random_data= 40,animationDisplay = TRUE,animationDelay = 10,
-animationTime = 1000,animationType = "linear"))
+animationTime = 1000,animationType = "linear"),SCATTERMouseOverDisplay = TRUE,
+SCATTERMouseOverTooltipsSetting = "style1",SCATTERMouseOutDisplay = TRUE,
+SCATTERMouseOutColor = NULL,SCATTERMouseOutCircleStrokeColor ="#99cafe",
+SCATTERMouseOutCircleStrokeWidth = 6)
 
 
 
@@ -535,7 +558,9 @@ maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32",
 circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, 
 animationDisplay=TRUE,animationTime= 2000, animationDelay= 0, 
 animationType= "linear") + 
-CircosBackground('BG01',minRadius = 145,maxRadius = 200))
+CircosBackground('BG01',minRadius = 145,maxRadius = 200),
+SNPMouseOverDisplay = TRUE,SNPMouseOverTooltipsSetting = "style1",
+SNPMouseOutDisplay = TRUE,SNPMouseOutColor = NULL)
 
 
 
@@ -580,7 +605,7 @@ Circos(moduleList=CircosText('text01', 'Annotation',
 												<h3>Plot viewer</h3>
 												<a class="image"><img src="../images/function_text.gif" height="500" width="500" alt="" /></a>
 												<ul class="actions" >
-													<li><a href="function_text.html" class="button" >Interactive demo</a></li>
+													<li><a href="function_text.html" class="button" >Live demo</a></li>
 												</ul>
 											</div>
 										</div>
@@ -601,7 +626,9 @@ maxRadius= 200,minRadius= 150,strokeColor= "darkblue",
 color= "lightblue",strokeType= "cardinal",
 animationDisplay = TRUE,animationTime = 3000,animationType="linear")+
 CircosBackground('BG01',minRadius = 205,maxRadius = 150),
-genome=list("chr8"=1000),outerRadius = 220)
+genome=list("chr8"=1000),outerRadius = 220,WIGMouseOverDisplay = TRUE,
+WIGMouseOverTooltipsSetting = "style1",WIGMouseOutDisplay = TRUE,
+WIGMouseOutFillColor = NULL)
 
 
 
